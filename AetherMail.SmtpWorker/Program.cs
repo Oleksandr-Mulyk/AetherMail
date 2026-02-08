@@ -1,4 +1,5 @@
 using AetherMail.SmtpWorker.Consumers;
+using AetherMail.SmtpWorker.Services;
 using MassTransit;
 
 var builder = Host.CreateApplicationBuilder(args);
@@ -18,6 +19,8 @@ builder.Services.AddMassTransit(config =>
         cfg.ConfigureEndpoints(context);
     });
 });
+
+builder.Services.AddTransient<IEmailSender, SmtpEmailSender>();
 
 var host = builder.Build();
 host.Run();
