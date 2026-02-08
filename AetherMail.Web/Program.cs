@@ -1,9 +1,25 @@
+using AetherMail.Contracts;
+using AetherMail.Web;
 using AetherMail.Web.Components;
+using MassTransit;
 using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+
+builder.Services.AddScoped<IMessagePublisher, MassTransitPublisher>();
+
+builder.AddRabbitMQClient("messaging");
+
+builder.Services.AddMassTransit(config =>
+{
+    config.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host(builder.Configuration.GetConnectionString("messaging"));
+        cfg.ConfigureEndpoints(context);
+    });
+});
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
