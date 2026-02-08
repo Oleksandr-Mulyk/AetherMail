@@ -1,0 +1,45 @@
+﻿@page "/compose"
+@using AetherMail.Contracts
+@using Microsoft.AspNetCore.Components.Web
+@using MudBlazor
+@rendermode InteractiveServer
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-8">
+    <MudText Typo="Typo.h4" GutterBottom="true">New Message</MudText>
+
+    <MudPaper Class="pa-6">
+        <MudForm @ref="_form" Model="@_model" Validation="_validator.ValidateValue" ValidationDelay="0">
+            <MudTextField T="string"
+                          Label="To"
+                          @bind-Value="_model.To"
+                          For="@(() => _model.To)"
+                          Variant="Variant.Outlined"
+                          Class="mb-4" />
+
+            <MudTextField T="string"
+                          Label="Subject"
+                          @bind-Value="_model.Subject"
+                          For="@(() => _model.Subject)"
+                          Variant="Variant.Outlined"
+                          Counter="200"
+                          MaxLength="200"
+                          Class="mb-4" />
+
+            <MudTextField T="string"
+                          Label="Message Body"
+                          @bind-Value="_model.Body"
+                          For="@(() => _model.Body)"
+                          Variant="Variant.Outlined"
+                          Lines="5"
+                          Class="mb-6" />
+
+            <MudButton Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       Size="Size.Large"
+                       OnClick="@HandleSubmitAsync"
+                       FullWidth="true">
+                Send to Aether
+            </MudButton>
+        </MudForm>
+    </MudPaper>
+</MudContainer>
