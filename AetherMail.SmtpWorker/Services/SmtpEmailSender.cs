@@ -13,9 +13,10 @@ namespace AetherMail.SmtpWorker.Services
             if (string.IsNullOrEmpty(connectionString))
                 throw new InvalidOperationException("Mailserver connection string is missing.");
 
-            var parts = connectionString.Split(':');
-            var host = parts[0];
-            var port = parts.Length > 1 ? int.Parse(parts[1]) : 1025;
+            var uriString = connectionString.Contains("://") ? connectionString : $"smtp://{connectionString}";
+            var uri = new Uri(uriString);
+            var host = uri.Host;
+            var port = uri.Port == -1 ? 1025 : uri.Port;
 
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("AetherMail", "noreply@aether.local"));

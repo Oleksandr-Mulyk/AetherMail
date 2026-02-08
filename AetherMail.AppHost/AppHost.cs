@@ -8,7 +8,7 @@ var mailServer = builder.AddContainer("mailserver", "axllent/mailpit")
 
 builder.AddProject<Projects.AetherMail_SmtpWorker>("smtpworker")
        .WithReference(messaging)
-       .WithReference(mailServer.GetEndpoint("smtp"));
+       .WithEnvironment("ConnectionStrings__mailserver", mailServer.GetEndpoint("smtp"));
 
 builder.AddProject<Projects.AetherMail_Web>("web")
     .WithReference(messaging);
