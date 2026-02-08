@@ -14,6 +14,7 @@ namespace AetherMail.Tests
             // Assert
             command.To.Should().Be("test@mail.com");
             command.Subject.Should().Be("Hello");
+            command.Body.Should().Be("Body");
         }
     }
 }
