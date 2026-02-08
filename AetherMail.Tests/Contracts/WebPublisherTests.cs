@@ -1,7 +1,7 @@
 ﻿using AetherMail.Contracts;
 using Moq;
 
-namespace AetherMail.Tests
+namespace AetherMail.Tests.Contracts
 {
     public class WebPublisherTests
     {
