@@ -3,4 +3,5 @@
   <Project Path="AetherMail.Contracts/AetherMail.Contracts.csproj" />
   <Project Path="AetherMail.ServiceDefaults/AetherMail.ServiceDefaults.csproj" />
   <Project Path="AetherMail.Tests/AetherMail.Tests.csproj" />
+  <Project Path="AetherMail.Web/AetherMail.Web.csproj" />
 </Solution>

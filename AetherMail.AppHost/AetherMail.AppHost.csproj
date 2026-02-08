@@ -8,4 +8,8 @@
     <UserSecretsId>ffcdd231-d8d3-42d8-9d19-66203ad5575e</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AetherMail.Web\AetherMail.Web.csproj" />
+  </ItemGroup>
+
 </Project>
