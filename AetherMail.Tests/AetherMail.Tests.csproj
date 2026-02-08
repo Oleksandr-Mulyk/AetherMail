@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AetherMail.Contracts\AetherMail.Contracts.csproj" />
+    <ProjectReference Include="..\AetherMail.SmtpWorker\AetherMail.SmtpWorker.csproj" />
     <ProjectReference Include="..\AetherMail.Web\AetherMail.Web.csproj" />
   </ItemGroup>
 
